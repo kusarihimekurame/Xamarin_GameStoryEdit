@@ -5,8 +5,4 @@
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AvalonEdit" Version="6.0.0" />
-  </ItemGroup>
-
 </Project>

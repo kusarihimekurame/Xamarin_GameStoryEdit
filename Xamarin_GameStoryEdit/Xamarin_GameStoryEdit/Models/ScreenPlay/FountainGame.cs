@@ -12,7 +12,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Text.RegularExpressions;
 
-namespace Xamarin_GameStoryEdit.Models.Screenplay
+namespace Xamarin_GameStoryEdit.Models.ScreenPlay
 {
     [DebuggerDisplay("Scene_{SceneBlocks}")]
     public class FountainGame
