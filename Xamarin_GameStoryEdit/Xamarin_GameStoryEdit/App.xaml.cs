@@ -24,7 +24,8 @@ namespace Xamarin_GameStoryEdit
                 DependencyService.Register<MockDataStore>();
             else
                 DependencyService.Register<AzureDataStore>();
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()

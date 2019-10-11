@@ -14,4 +14,13 @@
   <ItemGroup>
     <ProjectReference Include="..\FountainSharp.Parse.NetStandard\FountainSharp.Parse.NetStandard.fsproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="AppShell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\FlyoutHeader.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

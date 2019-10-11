@@ -103,7 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xamarin_GameStoryEdit\Xamarin_GameStoryEdit.csproj">
-      <Project>{C271691A-C223-42FF-A260-9A82014AB12B}</Project>
+      <Project>{2e513251-07d2-4349-bbda-7312f72e20ec}</Project>
       <Name>Xamarin_GameStoryEdit</Name>
     </ProjectReference>
   </ItemGroup>
