@@ -24,8 +24,11 @@ namespace Xamarin_GameStoryEdit
                 DependencyService.Register<MockDataStore>();
             else
                 DependencyService.Register<AzureDataStore>();
-            //MainPage = new MainPage();
-            MainPage = new AppShell();
+
+            if (DeviceInfo.Platform == DevicePlatform.Android || DeviceInfo.Platform == DevicePlatform.iOS)
+                MainPage = new AppShell();
+            else
+                MainPage = new MainPage();
         }
 
         protected override void OnStart()

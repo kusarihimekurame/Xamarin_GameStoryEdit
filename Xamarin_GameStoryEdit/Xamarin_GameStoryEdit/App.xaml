@@ -7,14 +7,14 @@
              x:Class="Xamarin_GameStoryEdit.App">
 
     <Application.Resources>
-        <!--<ResourceDictionary>
-            Global Styles
-            <Color x:Key="NavigationPrimary">#2196F3</Color>
+        <ResourceDictionary>
+            <!--Global Styles-->
+            <Color x:Key="NavigationPrimary">Default</Color>
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="BarTextColor" Value="White" />
+                <Setter Property="BarTextColor" Value="Default" />
             </Style>
-        </ResourceDictionary>-->
+        </ResourceDictionary>
     </Application.Resources>
     
 </Application>
