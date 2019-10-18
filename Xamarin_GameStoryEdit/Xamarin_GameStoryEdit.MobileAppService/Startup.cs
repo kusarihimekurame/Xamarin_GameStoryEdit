@@ -32,8 +32,7 @@ namespace Xamarin_GameStoryEdit.MobileAppService
             //});
 
             services.AddControllers();
-            services.AddControllersWithViews();
-            services.AddRazorPages();
+            services.AddSingleton<IItemRepository, ItemRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
