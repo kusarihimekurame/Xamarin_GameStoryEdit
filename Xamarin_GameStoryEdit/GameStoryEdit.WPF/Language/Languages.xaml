@@ -1,0 +1,6 @@
+﻿<ResourceDictionary x:Class="GameStoryEdit.WPF.Languages"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:GameStoryEdit.WPF">
+    <ObjectDataProvider x:Key="Languages" ObjectType="{x:Type local:Languages}"/>
+</ResourceDictionary>
