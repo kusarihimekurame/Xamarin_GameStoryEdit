@@ -13,7 +13,6 @@ using System.Windows.Input;
 using System.Xml.Serialization;
 using System.Xml;
 using Xceed.Wpf.AvalonDock.Layout;
-using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace GameStoryEdit.WPF.Commands
 {
@@ -22,7 +21,6 @@ namespace GameStoryEdit.WPF.Commands
         public static ICommand Exit { get; } = new _Exit();
         public static ICommand NewDialog { get; } = new _NewDialog();
         public static ICommand Open { get; } = new _Open();
-        public static ICommand OpenDialog { get; } = new _OpenDialog();
         public static ICommand Close { get; } = new _Close();
         public static ICommand Save { get; } = new _Save();
 
@@ -100,20 +98,6 @@ namespace GameStoryEdit.WPF.Commands
             }
             public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
-
-        private class _OpenDialog : ICommand
-        {
-            public event EventHandler CanExecuteChanged;
-            public bool CanExecute(object parameter) => parameter is TextBox;
-            public void Execute(object parameter)
-            {
-                TextBox tb = parameter as TextBox;
-                CommonOpenFileDialog FileDialog = new CommonOpenFileDialog("项目位置") { IsFolderPicker = true, DefaultDirectory = tb.Text };
-                if (FileDialog.ShowDialog(Window.GetWindow(parameter as TextBox)) == CommonFileDialogResult.Ok) tb.Text = FileDialog.FileName;
-            }
-            public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
-        }
-
         public class _Close : ICommand
         {
             public event EventHandler CanExecuteChanged;
