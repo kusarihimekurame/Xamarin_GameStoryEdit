@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<SyntaxDefinition name="Fountain" extensions=".cs" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+  <Color name="SceneHeadings" foreground="#00FFFF"/>
+  <Color name="Character" foreground="#7CFC00"/>
+  <Color name="Dialogue" foreground="Orange"/>
+  <Color name="Parenthetical" foreground="#EEEE00"/>
+  <Color name="Title" foreground="#5CACEE"/>
+  <Color name="Boneyard" foreground="#006400"/>
+  <RuleSet>
+    <Span color="Boneyard" multiline="true">
+			<Begin>/\*</Begin>
+			<End>\*/</End>
+		</Span>
+    <Span color="Boneyard" multiline="true">
+			<Begin>\[\[</Begin>
+			<End>\]\]</End>
+		</Span>
+    <Span color="Dialogue" multiline="true" ruleSet="Parenthetical">
+      <Begin color="Character">^([@]+[^.()^]*|[A-Z]+[0-9A-Z ]*)( \^?)?(\(.*\))*$</Begin>
+      <End>^ {2}$</End>
+    </Span>
+    <Import ruleSet="SceneHeadings"/>
+    <Import ruleSet="Title"/>
+  </RuleSet>
+  <RuleSet name="SceneHeadings" ignoreCase="true">
+    <Rule color="SceneHeadings">^((?:\*{0,3}_?)?(?:(?:int|内景|屋内|内|ext|外景|屋外|外|est|INT\/EXT|i\/e|内景\/外景|屋内/屋外|内\/外)[. ]).+)|^(?:\.(?!\.+))(.+)</Rule>
+  </RuleSet>
+  <RuleSet name="Parenthetical">
+    <Rule color="Parenthetical">^(\(.+\))$</Rule>
+  </RuleSet>
+  <RuleSet name="Title" ignoreCase="true">
+    <Rule color="Title">^((?:title|标题|タイトル|credit|author[s]?|作者|著者|source|notes|draft date|起稿日期|草案日付|日期|日付|date|contact|联络地址|連絡先|copyright|版权|著作権)\:)</Rule>
+  </RuleSet>
+</SyntaxDefinition>
