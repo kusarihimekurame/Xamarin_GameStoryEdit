@@ -42,6 +42,7 @@ namespace Xamarin_GameStoryEdit.Models.Fountain
         public FountainGame(string Text) => Fountain = FountainDocument.Parse(Text);
         private FountainGame(FountainDocument fountainDocument) => Fountain = fountainDocument;
         public static async Task<FountainGame> GetValueAsync(string Text) => new FountainGame(await FountainDocument.ParseAsync(Text));
+        public string Text => Fountain.Text;
     }
 
     public class Blocks

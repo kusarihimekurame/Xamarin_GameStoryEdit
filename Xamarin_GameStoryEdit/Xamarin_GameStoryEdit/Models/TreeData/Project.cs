@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+using Xamarin_GameStoryEdit.Interface;
 
-namespace GameStoryEdit.WPF.TreeData
+namespace Xamarin_GameStoryEdit.Models.TreeData
 {
     [Serializable]
     public class Project : BaseTreeItem, IXmlSerializable
@@ -91,7 +92,7 @@ namespace GameStoryEdit.WPF.TreeData
 
                                 if (reader.NodeType == XmlNodeType.Element && !reader.LocalName.Equals("Name") && !reader.LocalName.Equals("Path") && !reader.LocalName.Equals("Children"))
                                 {
-                                    BaseTreeItem treeItem = (BaseTreeItem)Assembly.GetExecutingAssembly().CreateInstance("GameStoryEdit.WPF.TreeData." + reader.LocalName);
+                                    BaseTreeItem treeItem = (BaseTreeItem)Assembly.GetExecutingAssembly().CreateInstance("Xamarin_GameStoryEdit.Models.TreeData." + reader.LocalName);
                                     while (reader.Read())
                                     {
                                         if (reader.NodeType == XmlNodeType.EndElement && !reader.LocalName.Equals("Name") && !reader.LocalName.Equals("Path") && !reader.LocalName.Equals("Children"))
@@ -120,7 +121,7 @@ namespace GameStoryEdit.WPF.TreeData
 
                                     if (treeItem is ScreenPlay sp && sp.Name != null && sp.Path != null)
                                     {
-                                        sp.FountainEditor = new UserControls.FountainEditor();
+                                        sp.Editor = Assembly.Load(AppDomain.CurrentDomain.FriendlyName).CreateInstance(AppDomain.CurrentDomain.FriendlyName + ".TreeData.EditorViewModel") as IScreenPlay;
                                     }
 
                                     rootTreeItem.Children.Add(treeItem);

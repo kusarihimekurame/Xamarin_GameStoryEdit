@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Xamarin_GameStoryEdit.Models.TreeData;
+using Xamarin_GameStoryEdit.ViewModels.TreeData;
 using Xceed.Wpf.AvalonDock.Layout;
 
 namespace GameStoryEdit.WPF.UserControls
@@ -52,7 +54,7 @@ namespace GameStoryEdit.WPF.UserControls
                     switch(viewModel.TreeItem)
                     {
                         case ScreenPlay screenPlay:
-                            ((MainWindow)Application.Current.MainWindow).LayoutDocumentPane.Children.Add(screenPlay.LayoutDocument);
+                            ((MainWindow)Application.Current.MainWindow).LayoutDocumentPane.Children.Add((screenPlay.Editor as EditorViewModel).LayoutDocument);
                             //screenPlay.FountainEditor.FountainGame_Changed += ((MainWindow)Application.Current.MainWindow).FountainGame_Changed;
                             break;
                     }

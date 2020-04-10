@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace GameStoryEdit.WPF.Data
+namespace Xamarin_GameStoryEdit.Models
 {
     public class HistoryCollection : List<History>
     {
@@ -22,7 +22,7 @@ namespace GameStoryEdit.WPF.Data
 
         public void Serialize()
         {
-            string path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "Histories";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "Histories";
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
             XmlSerializer serializer = new XmlSerializer(typeof(HistoryCollection));
             using (XmlWriter xmlWriter = XmlWriter.Create(path + @"\OpenTime.xml"))
@@ -32,7 +32,7 @@ namespace GameStoryEdit.WPF.Data
         }
         public static HistoryCollection Deserialize()
         {
-            string path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"Histories\OpenTime.xml";
+            string path = AppDomain.CurrentDomain.BaseDirectory + @"Histories\OpenTime.xml";
             if (!File.Exists(path))
             {
                 HistoryCollection histories = new HistoryCollection();

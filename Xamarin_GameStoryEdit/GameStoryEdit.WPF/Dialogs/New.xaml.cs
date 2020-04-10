@@ -14,8 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml;
 using System.Xml.Serialization;
-using GameStoryEdit.WPF.Data;
 using GameStoryEdit.WPF.TreeData;
+using Xamarin_GameStoryEdit.Models;
+using Xamarin_GameStoryEdit.Models.TreeData;
 
 namespace GameStoryEdit.WPF.Dialogs
 {
@@ -92,7 +93,7 @@ namespace GameStoryEdit.WPF.Dialogs
             assets.Children.Add(new BaseTreeItem() { Name = "Images", Path = assets.Path + @"\Images" });
             assets.Children.Add(new BaseTreeItem() { Name = "Videos", Path = assets.Path + @"\Videos" });
             Document document = new Document() { Name = "Document", Path = assets.Children["Documents"].Path };
-            ScreenPlay screenPlay = new ScreenPlay() { Name = "ScreenPlay1", Path = document.Path };
+            ScreenPlay screenPlay = new ScreenPlay() { Name = "ScreenPlay1", Path = document.Path, Editor = new EditorViewModel() };
             document.Children.Add(screenPlay);
             Flow flow = new Flow() { Name = "Flow", Path = project.Path + @"\Flow" };
             Locations locations = new Locations() { Name = "Locations" };
@@ -104,7 +105,6 @@ namespace GameStoryEdit.WPF.Dialogs
             project.Children.Add(assets);
             solution.Projects.Add(project);
 
-            screenPlay.FountainEditor = new UserControls.FountainEditor();
             solution.Serialize();
             solution = Solution.Deserialize(solution.Path + @"\" + solution.Name + ".gse");
             

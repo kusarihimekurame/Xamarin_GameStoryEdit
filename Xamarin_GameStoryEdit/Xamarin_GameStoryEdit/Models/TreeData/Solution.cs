@@ -1,5 +1,4 @@
-﻿using GameStoryEdit.WPF.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,10 +7,10 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+using Xamarin_GameStoryEdit.Models;
 
-namespace GameStoryEdit.WPF.TreeData
+namespace Xamarin_GameStoryEdit.Models.TreeData
 {
-    [Serializable]
     public class Solution : IXmlSerializable
     {
         #region Data

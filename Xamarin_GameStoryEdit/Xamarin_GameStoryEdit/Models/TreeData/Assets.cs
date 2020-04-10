@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameStoryEdit.WPF.TreeData
+namespace Xamarin_GameStoryEdit.Models.TreeData
 {
-    public class Tables : BaseTreeItem
+    public class Assets : BaseTreeItem
     {
     }
 }

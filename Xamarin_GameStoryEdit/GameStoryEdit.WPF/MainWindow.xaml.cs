@@ -12,6 +12,8 @@ using GameStoryEdit.WPF.TreeData;
 using System.ComponentModel;
 using System.Collections.Generic;
 using Xamarin_GameStoryEdit.Models.Fountain;
+using Xamarin_GameStoryEdit.ViewModels.TreeData;
+using Xamarin_GameStoryEdit.Models.TreeData;
 
 namespace GameStoryEdit.WPF
 {
@@ -57,7 +59,7 @@ namespace GameStoryEdit.WPF
             {
                 if (TreeView.DataContext is SolutionViewModel solutionView)
                 {
-                    lf.Content = solutionView.FindMatches(lf.Title, solutionView.Projects).Select(vm => vm.TreeItem).Cast<ScreenPlay>().First().FountainEditor;
+                    lf.Content = (solutionView.FindMatches(lf.Title, solutionView.Projects).Select(vm => vm.TreeItem).Cast<ScreenPlay>().First().Editor as EditorViewModel).FountainEditor;
                     Manager.Content = ((FountainEditor)lf.Content).Manager;
                 }
 

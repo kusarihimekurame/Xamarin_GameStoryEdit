@@ -6,8 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using Xamarin_GameStoryEdit.Models.TreeData;
 
-namespace GameStoryEdit.WPF.TreeData
+namespace Xamarin_GameStoryEdit.ViewModels.TreeData
 {
     public class SolutionViewModel
     {
@@ -151,12 +152,12 @@ namespace GameStoryEdit.WPF.TreeData
 
             if (!_matchingTreeItemEnumerator.MoveNext())
             {
-                MessageBox.Show(
-                    "No matching names were found.",
-                    "Try Again",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information
-                    );
+                //MessageBox.Show(
+                //    "No matching names were found.",
+                //    "Try Again",
+                //    MessageBoxButton.OK,
+                //    MessageBoxImage.Information
+                //    );
             }
         }
 

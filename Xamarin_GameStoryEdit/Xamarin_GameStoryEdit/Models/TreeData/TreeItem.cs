@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin_GameStoryEdit.ViewModels.TreeData;
 
-namespace GameStoryEdit.WPF.TreeData
+namespace Xamarin_GameStoryEdit.Models.TreeData
 {
     public static class TreeItem
     {
