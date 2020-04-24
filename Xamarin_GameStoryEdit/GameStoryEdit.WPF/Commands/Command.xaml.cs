@@ -22,6 +22,7 @@ namespace GameStoryEdit.WPF.Commands
         public static ICommand Exit { get; } = new _Exit();
         public static ICommand NewDialog { get; } = new _NewDialog();
         public static ICommand Open { get; } = new _Open();
+        public static ICommand OpenFolder { get; } = new _OpenFolder();
         public static ICommand Close { get; } = new _Close();
         public static ICommand Save { get; } = new _Save();
 
@@ -98,6 +99,30 @@ namespace GameStoryEdit.WPF.Commands
                 }
             }
             public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private class _OpenFolder : ICommand
+        {
+            public event EventHandler CanExecuteChanged;
+            public bool CanExecute(object parameter) { return true; }
+            public void Execute(object parameter)
+            {
+                TextBox tb = parameter as TextBox;
+
+                System.Windows.Forms.FolderBrowserDialog fbd = new System.Windows.Forms.FolderBrowserDialog
+                {
+                    Description = "项目位置",
+                    RootFolder = Environment.SpecialFolder.MyDocuments,
+                    UseDescriptionForTitle = true,
+                    ShowNewFolderButton = true
+                };
+
+                if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK) tb.Text = fbd.SelectedPath;
+            }
+            public void RaiseCanExecuteChanged()
+            {
+                CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         public class _Close : ICommand
